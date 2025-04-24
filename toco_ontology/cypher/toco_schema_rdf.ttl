@@ -1,0 +1,33 @@
+@prefix toco: <http://example.org/toco#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+toco:Device rdf:type owl:Class .
+toco:Connection rdf:type owl:Class .
+toco:AccessPoint rdf:type owl:Class .
+toco:Location rdf:type owl:Class .
+toco:Service rdf:type owl:Class .
+toco:QoS rdf:type owl:Class .
+toco:Policy rdf:type owl:Class .
+
+toco:hasConnection rdf:type owl:ObjectProperty ;
+    rdfs:domain toco:Device ;
+    rdfs:range toco:Connection .
+
+toco:connectedTo rdf:type owl:ObjectProperty ;
+    rdfs:domain toco:Connection ;
+    rdfs:range toco:AccessPoint .
+
+toco:locatedAt rdf:type owl:ObjectProperty ;
+    rdfs:domain toco:Device ;
+    rdfs:range toco:Location .
+
+toco:hasQoS rdf:type owl:ObjectProperty ;
+    rdfs:domain toco:Service ;
+    rdfs:range toco:QoS .
+
+toco:governedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain toco:Service ;
+    rdfs:range toco:Policy .

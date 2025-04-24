@@ -1,0 +1,57 @@
+
+@prefix hint: <http://example.org/hint#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+hint:UserEquipment rdf:type owl:Class .
+hint:AccessPoint rdf:type owl:Class .
+hint:Signal rdf:type owl:Class .
+hint:Receiver rdf:type owl:Class .
+hint:Sender rdf:type owl:Class .
+hint:Quality rdf:type owl:Class .
+hint:NetworkSlice rdf:type owl:Class .
+hint:Service rdf:type owl:Class .
+hint:QualityOfService rdf:type owl:Class .
+hint:Policy rdf:type owl:Class .
+
+hint:HAS_INTERFACE rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:UserEquipment ;
+    rdfs:range hint:Receiver .
+
+hint:TRANSMITS rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:Sender ;
+    rdfs:range hint:Signal .
+
+hint:RECEIVES rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:Receiver ;
+    rdfs:range hint:Signal .
+
+hint:DECODES rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:Receiver ;
+    rdfs:range hint:Sender .
+
+hint:HAS_QUALITY rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:Signal ;
+    rdfs:range hint:Quality .
+
+hint:SELECTED_AP rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:UserEquipment ;
+    rdfs:range hint:AccessPoint .
+
+hint:MONITORED_AP rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:UserEquipment ;
+    rdfs:range hint:AccessPoint .
+
+hint:PROVIDES rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:NetworkSlice ;
+    rdfs:range hint:Service .
+
+hint:HAS_QOS rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:NetworkSlice ;
+    rdfs:range hint:QualityOfService .
+
+hint:GOVERNED_BY rdf:type owl:ObjectProperty ;
+    rdfs:domain hint:NetworkSlice ;
+    rdfs:range hint:Policy .
